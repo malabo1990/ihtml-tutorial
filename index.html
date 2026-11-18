@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutoriales de IHTML — aprende a animar HTML sin código</title>
+    <meta name="description" content="Tutoriales paso a paso de IHTML (Interactive HTML): animaciones con keyframes, botones interactivos, variables, páginas y exportación a HTML." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ihtml.es/" />
+    <link rel="alternate" hreflang="es" href="https://ihtml.es/" />
+    <link rel="alternate" hreflang="en" href="https://ihtml.es/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://ihtml.es/" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Tutoriales de IHTML" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:title" content="Tutoriales de IHTML — aprende a animar HTML sin código" />
+    <meta property="og:description" content="Tutoriales paso a paso de IHTML (Interactive HTML): animaciones con keyframes, botones interactivos, variables, páginas y exportación a HTML." />
+    <meta property="og:url" content="https://ihtml.es/" />
+    <meta property="og:image" content="https://ihtml.eu/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/estilos.css" />
+    <link rel="stylesheet" href="assets/tutorial.css" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Tutoriales de IHTML",
+  "description": "Tutoriales paso a paso de IHTML (Interactive HTML): animaciones con keyframes, botones interactivos, variables, páginas y exportación a HTML.",
+  "inLanguage": "es",
+  "url": "https://ihtml.es/",
+  "hasPart": [
+    {
+      "@type": "HowTo",
+      "name": "Tu primera animación",
+      "url": "https://ihtml.es/primera-animacion.html"
+    },
+    {
+      "@type": "HowTo",
+      "name": "Un botón que muestra un panel",
+      "url": "https://ihtml.es/boton-interactivo.html"
+    },
+    {
+      "@type": "HowTo",
+      "name": "Un contador con variables",
+      "url": "https://ihtml.es/contador.html"
+    },
+    {
+      "@type": "HowTo",
+      "name": "Páginas con transiciones",
+      "url": "https://ihtml.es/paginas-transiciones.html"
+    },
+    {
+      "@type": "HowTo",
+      "name": "Exportar y publicar",
+      "url": "https://ihtml.es/exportar-publicar.html"
+    }
+  ]
+}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="island">
+      <button class="island-dot" aria-label="Menú" aria-expanded="false"></button>
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 555 625" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="logoGrad" x1="277" y1="0" x2="277" y2="625" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+            <linearGradient id="logoGradH" x1="0" y1="312" x2="555" y2="312" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#logoGrad)" d="M0 0H554.15V416.48L277.07 624.08 0 416.48Z" />
+          <path fill="url(#logoGradH)" d="M554.15 0 277.07 624.08 0 0Z" />
+        </svg>
+        <span class="logo-text"><b>IHTML</b>&nbsp;Interactive HTML</span>
+      </a>
+      <div class="island-menu-wrap">
+        <nav class="island-menu">
+          <a href="index.html" class="is-activo">Tutoriales</a>
+          <a href="https://ihtml.eu/es/guia-usuario.html">Guía completa</a>
+          <a href="https://ihtml.eu/es/">Web de IHTML</a>
+          <a class="is-cta" href="https://ihtml.eu/es/descargas.html">Descargar</a>
+        </nav>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-switch-btn" type="button" aria-label="Idioma: Español" aria-haspopup="true" aria-expanded="false">
+          ES<span class="lang-switch-caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="lang-switch-menu">
+          <a href="en/index.html" lang="en">English</a>
+          <a href="#" class="is-activo" lang="es">Español</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <main id="contenido" class="tutoriales">
+        <h1>Tutoriales de IHTML</h1>
+        <p class="intro">Aprende IHTML paso a paso: cada tutorial es corto, práctico y termina con algo que funciona.</p>
+        <div class="tuto-grid">
+        <a class="tuto-card" href="primera-animacion.html">
+          <span class="tuto-num">01</span>
+          <h2>Tu primera animación</h2>
+          <p>Crea un elemento, anímalo con keyframes en la Timeline y míralo moverse en 10 minutos.</p>
+          <span class="tuto-meta">Principiante · 10 min</span>
+        </a>
+        <a class="tuto-card" href="boton-interactivo.html">
+          <span class="tuto-num">02</span>
+          <h2>Un botón que muestra un panel</h2>
+          <p>Usa Acciones para que un clic muestre u oculte otro elemento, sin escribir código.</p>
+          <span class="tuto-meta">Principiante · 8 min</span>
+        </a>
+        <a class="tuto-card" href="contador.html">
+          <span class="tuto-num">03</span>
+          <h2>Un contador con variables</h2>
+          <p>Crea una variable de proyecto, súmale 1 con cada clic y muéstrala en un texto.</p>
+          <span class="tuto-meta">Intermedio · 8 min</span>
+        </a>
+        <a class="tuto-card" href="paginas-transiciones.html">
+          <span class="tuto-num">04</span>
+          <h2>Páginas con transiciones</h2>
+          <p>Crea varias páginas y navega entre ellas con la acción Go to Page y una transición animada.</p>
+          <span class="tuto-meta">Intermedio · 10 min</span>
+        </a>
+        <a class="tuto-card" href="exportar-publicar.html">
+          <span class="tuto-num">05</span>
+          <h2>Exportar y publicar</h2>
+          <p>Las formas de sacar tu proyecto de IHTML, de HTML para la web a .ihtml, imagen, GIF o vídeo.</p>
+          <span class="tuto-meta">Principiante · 6 min</span>
+        </a>
+        </div>
+      </main>
+    </div>
+
+    <footer>
+      <p>Tutoriales de <b>IHTML</b> (Interactive HTML), el editor de animaciones HTML/CSS para escritorio y Android.</p>
+      <div class="docs">
+        <a href="index.html">Tutoriales</a>
+        <a href="https://ihtml.eu/es/guia-usuario.html">Guía completa</a>
+        <a href="https://ihtml.eu/es/">Web de IHTML</a>
+        <a href="https://ihtml.eu/es/descargas.html">Descargar</a>
+      </div>
+      <p class="footer-credit">© 2026 IHTML</p>
+      <p class="legal-links"><a href="https://ihtml.eu/es/licencia.html">Licencia</a> · <a href="https://ihtml.eu/es/privacidad.html">Privacidad</a></p>
+    </footer>
+
+    <script>
+      const isla = document.querySelector('.island');
+      const islaBot = document.querySelector('.island-dot');
+      if (isla && islaBot) {
+        islaBot.addEventListener('click', () => {
+          const abierto = isla.classList.toggle('is-abierto');
+          islaBot.setAttribute('aria-expanded', abierto);
+        });
+        document.addEventListener('click', (e) => {
+          if (isla.contains(e.target)) return;
+          isla.classList.remove('is-abierto');
+          islaBot.setAttribute('aria-expanded', 'false');
+        });
+      }
+      document.querySelectorAll('.lang-switch').forEach((ls) => {
+        const btn = ls.querySelector('.lang-switch-btn');
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const open = ls.classList.toggle('is-abierto');
+          btn.setAttribute('aria-expanded', open);
+        });
+      });
+      document.addEventListener('click', (e) => {
+        document.querySelectorAll('.lang-switch.is-abierto').forEach((ls) => {
+          if (ls.contains(e.target)) return;
+          ls.classList.remove('is-abierto');
+          ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
+        });
+      });
+    </script>
+  </body>
+</html>

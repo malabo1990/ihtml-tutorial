@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pages with transitions — IHTML Tutorials</title>
+    <meta name="description" content="Create several pages and move between them with the Go to Page action and an animated transition." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ihtml.es/en/pages-transitions.html" />
+    <link rel="alternate" hreflang="en" href="https://ihtml.es/en/pages-transitions.html" />
+    <link rel="alternate" hreflang="es" href="https://ihtml.es/paginas-transiciones.html" />
+    <link rel="alternate" hreflang="x-default" href="https://ihtml.es/paginas-transiciones.html" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="IHTML Tutorials" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="Pages with transitions — IHTML Tutorials" />
+    <meta property="og:description" content="Create several pages and move between them with the Go to Page action and an animated transition." />
+    <meta property="og:url" content="https://ihtml.es/en/pages-transitions.html" />
+    <meta property="og:image" content="https://ihtml.eu/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/estilos.css" />
+    <link rel="stylesheet" href="../assets/tutorial.css" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Pages with transitions",
+  "description": "Create several pages and move between them with the Go to Page action and an animated transition.",
+  "inLanguage": "en",
+  "totalTime": "PT10M",
+  "url": "https://ihtml.es/en/pages-transitions.html",
+  "image": "https://ihtml.eu/assets/og-image.png"
+}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Skip to content</a>
+    <header class="island">
+      <button class="island-dot" aria-label="Menu" aria-expanded="false"></button>
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 555 625" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="logoGrad" x1="277" y1="0" x2="277" y2="625" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+            <linearGradient id="logoGradH" x1="0" y1="312" x2="555" y2="312" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#logoGrad)" d="M0 0H554.15V416.48L277.07 624.08 0 416.48Z" />
+          <path fill="url(#logoGradH)" d="M554.15 0 277.07 624.08 0 0Z" />
+        </svg>
+        <span class="logo-text"><b>IHTML</b>&nbsp;Interactive HTML</span>
+      </a>
+      <div class="island-menu-wrap">
+        <nav class="island-menu">
+          <a href="index.html" class="is-activo">Tutorials</a>
+          <a href="https://ihtml.eu/guide.html">Full guide</a>
+          <a href="https://ihtml.eu/">IHTML website</a>
+          <a class="is-cta" href="https://ihtml.eu/downloads.html">Download</a>
+        </nav>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-switch-btn" type="button" aria-label="Language: English" aria-haspopup="true" aria-expanded="false">
+          EN<span class="lang-switch-caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="lang-switch-menu">
+          <a href="../paginas-transiciones.html" lang="es">Español</a>
+          <a href="#" class="is-activo" lang="en">English</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <main id="contenido" class="guia tutorial">
+        <p class="tuto-meta">Intermediate · 10 min</p>
+        <h1>Pages with transitions</h1>
+        <p class="intro">Create several pages and move between them with the Go to Page action and an animated transition.</p>
+<p>An IHTML project can have several <b>pages</b> (scenes). Only one is visible at a time, and a button can take you to another with a transition.</p>
+<h2 id="1-create-a-second-page">1. Create a second page</h2>
+<ol class="pasos"><li>In the left sidebar, open the <b>Pages</b> tab.</li><li>Click <b>+ New page</b> and choose <b>Blank page</b>.</li><li>Click each page in the list to activate it and edit its content. New elements go to the active page.</li></ol>
+<p class="nota"><b>Tablet</b> and <b>Mobile</b> create variants sized for those devices, grouped under the page you had selected.</p>
+<h2 id="2-next-button">2. &quot;Next&quot; button</h2>
+<ol class="pasos"><li>Activate the first page and add a <b>Button</b> with the text &quot;Next&quot;.</li><li>In <b>Actions</b>: <b>Click</b> trigger, <b>Go to Page</b> action.</li><li>Choose the second page, the <b>Slide</b> (or <b>Fade</b>) transition and a duration in ms, for example <code>400</code>.</li></ol>
+<h2 id="3-back-button">3. &quot;Back&quot; button</h2>
+<p>On the second page, add another button with <b>Go to Page</b> back to the first one, with <b>Slide</b> in the opposite direction.</p>
+<h2 id="4-try-it">4. Try it</h2>
+<p>Click <b>Preview</b>: once the project uses Go to Page, the exported HTML includes every page (hidden except the first).</p>
+<h2 id="tips">Tips</h2>
+<ul><li>The <b>Selected only / All visible</b> button shows or hides the outline of the other pages on the canvas.</li><li>Right-click a page to rename, duplicate or delete it.</li></ul>
+<h2 id="what-you-learned">What you learned</h2>
+<ul><li>Creating blank pages and responsive variants.</li><li>Moving between pages with Go to Page and Fade or Slide transitions.</li></ul>
+        <nav class="tuto-nav">
+          <a href="index.html">← All tutorials</a>
+          <a href="export-publish.html">Next: Export and publish →</a>
+        </nav>
+      </main>
+    </div>
+
+    <footer>
+      <p>Tutorials for <b>IHTML</b> (Interactive HTML), the HTML/CSS animation editor for desktop and Android.</p>
+      <div class="docs">
+        <a href="index.html">Tutorials</a>
+        <a href="https://ihtml.eu/guide.html">Full guide</a>
+        <a href="https://ihtml.eu/">IHTML website</a>
+        <a href="https://ihtml.eu/downloads.html">Download</a>
+      </div>
+      <p class="footer-credit">© 2026 IHTML</p>
+      <p class="legal-links"><a href="https://ihtml.eu/license.html">License</a> · <a href="https://ihtml.eu/privacy.html">Privacy</a></p>
+    </footer>
+
+    <script>
+      const isla = document.querySelector('.island');
+      const islaBot = document.querySelector('.island-dot');
+      if (isla && islaBot) {
+        islaBot.addEventListener('click', () => {
+          const abierto = isla.classList.toggle('is-abierto');
+          islaBot.setAttribute('aria-expanded', abierto);
+        });
+        document.addEventListener('click', (e) => {
+          if (isla.contains(e.target)) return;
+          isla.classList.remove('is-abierto');
+          islaBot.setAttribute('aria-expanded', 'false');
+        });
+      }
+      document.querySelectorAll('.lang-switch').forEach((ls) => {
+        const btn = ls.querySelector('.lang-switch-btn');
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const open = ls.classList.toggle('is-abierto');
+          btn.setAttribute('aria-expanded', open);
+        });
+      });
+      document.addEventListener('click', (e) => {
+        document.querySelectorAll('.lang-switch.is-abierto').forEach((ls) => {
+          if (ls.contains(e.target)) return;
+          ls.classList.remove('is-abierto');
+          ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
+        });
+      });
+    </script>
+  </body>
+</html>

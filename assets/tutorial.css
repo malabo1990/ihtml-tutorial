@@ -1,0 +1,113 @@
+/* Web de tutoriales (ihtml.es). Se apoya en estilos.css (copia de ihtml.eu). */
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 104px 24px 120px;
+}
+
+main.tutorial {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.tutoriales h1 {
+  font-size: clamp(34px, 5vw, 52px);
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  margin: 0 0 14px;
+}
+
+.tutoriales .intro {
+  font-size: 18px;
+  color: var(--ink-2);
+  max-width: 640px;
+  margin: 0 0 40px;
+}
+
+.tuto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.tuto-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.tuto-card:hover,
+.tuto-card:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.tuto-card h2 {
+  font-size: 20px;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.tuto-card p {
+  margin: 0;
+  flex: 1;
+  color: var(--ink-2);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.tuto-num {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--accent-text);
+}
+
+.tuto-meta {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tutorial > .tuto-meta {
+  margin: 0 0 8px;
+}
+
+.tuto-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.tuto-nav a {
+  color: var(--accent-text);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.tuto-nav a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    padding: 92px 16px 80px;
+  }
+}

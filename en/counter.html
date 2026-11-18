@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A counter with variables — IHTML Tutorials</title>
+    <meta name="description" content="Create a project variable, add 1 on every click and show it in a text." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ihtml.es/en/counter.html" />
+    <link rel="alternate" hreflang="en" href="https://ihtml.es/en/counter.html" />
+    <link rel="alternate" hreflang="es" href="https://ihtml.es/contador.html" />
+    <link rel="alternate" hreflang="x-default" href="https://ihtml.es/contador.html" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="IHTML Tutorials" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="A counter with variables — IHTML Tutorials" />
+    <meta property="og:description" content="Create a project variable, add 1 on every click and show it in a text." />
+    <meta property="og:url" content="https://ihtml.es/en/counter.html" />
+    <meta property="og:image" content="https://ihtml.eu/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/estilos.css" />
+    <link rel="stylesheet" href="../assets/tutorial.css" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "A counter with variables",
+  "description": "Create a project variable, add 1 on every click and show it in a text.",
+  "inLanguage": "en",
+  "totalTime": "PT8M",
+  "url": "https://ihtml.es/en/counter.html",
+  "image": "https://ihtml.eu/assets/og-image.png"
+}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Skip to content</a>
+    <header class="island">
+      <button class="island-dot" aria-label="Menu" aria-expanded="false"></button>
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 555 625" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="logoGrad" x1="277" y1="0" x2="277" y2="625" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+            <linearGradient id="logoGradH" x1="0" y1="312" x2="555" y2="312" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#logoGrad)" d="M0 0H554.15V416.48L277.07 624.08 0 416.48Z" />
+          <path fill="url(#logoGradH)" d="M554.15 0 277.07 624.08 0 0Z" />
+        </svg>
+        <span class="logo-text"><b>IHTML</b>&nbsp;Interactive HTML</span>
+      </a>
+      <div class="island-menu-wrap">
+        <nav class="island-menu">
+          <a href="index.html" class="is-activo">Tutorials</a>
+          <a href="https://ihtml.eu/guide.html">Full guide</a>
+          <a href="https://ihtml.eu/">IHTML website</a>
+          <a class="is-cta" href="https://ihtml.eu/downloads.html">Download</a>
+        </nav>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-switch-btn" type="button" aria-label="Language: English" aria-haspopup="true" aria-expanded="false">
+          EN<span class="lang-switch-caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="lang-switch-menu">
+          <a href="../contador.html" lang="es">Español</a>
+          <a href="#" class="is-activo" lang="en">English</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <main id="contenido" class="guia tutorial">
+        <p class="tuto-meta">Intermediate · 8 min</p>
+        <h1>A counter with variables</h1>
+        <p class="intro">Create a project variable, add 1 on every click and show it in a text.</p>
+<p><b>Project variables</b> store named numbers: game points, form steps, clicks… In this tutorial you'll build a score counter.</p>
+<h2 id="1-create-the-variable">1. Create the variable</h2>
+<ol class="pasos"><li>Select any element and open the <b>Actions</b> tab.</li><li>Above the action list is <b>Project Variables</b>. Click <b>+ Add Variable</b>.</li><li>Name: <code>score</code>. Initial value: <code>0</code>.</li></ol>
+<h2 id="2-show-it-in-a-text">2. Show it in a text</h2>
+<ol class="pasos"><li>Create a text with the <b>Text</b> tool (<code>T</code>) and one click on the canvas.</li><li>In the <b>Content</b> field type: <code>Score: {{score}}</code>.</li><li>The canvas now shows &quot;Score: 0&quot;. The value updates on its own whenever the variable changes.</li></ol>
+<p class="nota">If you type a name that doesn't exist, it stays visible as is, so you notice the mistake.</p>
+<h2 id="3-add-1-on-every-click">3. Add 1 on every click</h2>
+<ol class="pasos"><li>Add a <b>Button</b> (<code>B</code>) and set its text to &quot;+1&quot;.</li><li>In <b>Actions</b>: <b>Click</b> trigger, <b>Set Variable</b> action.</li><li>Variable <code>score</code>, operation <b>+ Add</b>, value <code>1</code>.</li></ol>
+<p>Try it in <b>Interactive</b> mode: every click adds a point.</p>
+<h2 id="4-more-operations">4. More operations</h2>
+<p>Set Variable can also <b>= Set to</b>, <b>− Subtract</b>, <b>× Multiply by</b>, <b>÷ Divide by</b>, <b>% Remainder of</b>, and limit with a minimum or maximum <b>Clamp</b>. For example, a &quot;Reset&quot; button with <b>= Set to 0</b>.</p>
+<h2 id="what-you-learned">What you learned</h2>
+<ul><li>Creating project variables.</li><li>Showing them with <code>{{name}}</code> in any text.</li><li>Changing them with the Set Variable action.</li></ul>
+        <nav class="tuto-nav">
+          <a href="index.html">← All tutorials</a>
+          <a href="pages-transitions.html">Next: Pages with transitions →</a>
+        </nav>
+      </main>
+    </div>
+
+    <footer>
+      <p>Tutorials for <b>IHTML</b> (Interactive HTML), the HTML/CSS animation editor for desktop and Android.</p>
+      <div class="docs">
+        <a href="index.html">Tutorials</a>
+        <a href="https://ihtml.eu/guide.html">Full guide</a>
+        <a href="https://ihtml.eu/">IHTML website</a>
+        <a href="https://ihtml.eu/downloads.html">Download</a>
+      </div>
+      <p class="footer-credit">© 2026 IHTML</p>
+      <p class="legal-links"><a href="https://ihtml.eu/license.html">License</a> · <a href="https://ihtml.eu/privacy.html">Privacy</a></p>
+    </footer>
+
+    <script>
+      const isla = document.querySelector('.island');
+      const islaBot = document.querySelector('.island-dot');
+      if (isla && islaBot) {
+        islaBot.addEventListener('click', () => {
+          const abierto = isla.classList.toggle('is-abierto');
+          islaBot.setAttribute('aria-expanded', abierto);
+        });
+        document.addEventListener('click', (e) => {
+          if (isla.contains(e.target)) return;
+          isla.classList.remove('is-abierto');
+          islaBot.setAttribute('aria-expanded', 'false');
+        });
+      }
+      document.querySelectorAll('.lang-switch').forEach((ls) => {
+        const btn = ls.querySelector('.lang-switch-btn');
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const open = ls.classList.toggle('is-abierto');
+          btn.setAttribute('aria-expanded', open);
+        });
+      });
+      document.addEventListener('click', (e) => {
+        document.querySelectorAll('.lang-switch.is-abierto').forEach((ls) => {
+          if (ls.contains(e.target)) return;
+          ls.classList.remove('is-abierto');
+          ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
+        });
+      });
+    </script>
+  </body>
+</html>

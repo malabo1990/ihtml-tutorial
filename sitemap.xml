@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://ihtml.es/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ihtml.es/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ihtml.es/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ihtml.es/" />
+  </url>
+  <url>
+    <loc>https://ihtml.es/primera-animacion.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ihtml.es/primera-animacion.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ihtml.es/en/first-animation.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ihtml.es/primera-animacion.html" />
+  </url>
+  <url>
+    <loc>https://ihtml.es/boton-interactivo.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ihtml.es/boton-interactivo.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ihtml.es/en/interactive-button.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ihtml.es/boton-interactivo.html" />
+  </url>
+  <url>
+    <loc>https://ihtml.es/contador.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ihtml.es/contador.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ihtml.es/en/counter.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ihtml.es/contador.html" />
+  </url>
+  <url>
+    <loc>https://ihtml.es/paginas-transiciones.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ihtml.es/paginas-transiciones.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ihtml.es/en/pages-transitions.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ihtml.es/paginas-transiciones.html" />
+  </url>
+  <url>
+    <loc>https://ihtml.es/exportar-publicar.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ihtml.es/exportar-publicar.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ihtml.es/en/export-publish.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ihtml.es/exportar-publicar.html" />
+  </url>
+  <url>
+    <loc>https://ihtml.es/en/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://ihtml.es/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://ihtml.es/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ihtml.es/" />
+  </url>
+  <url>
+    <loc>https://ihtml.es/en/first-animation.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ihtml.es/en/first-animation.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ihtml.es/primera-animacion.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ihtml.es/primera-animacion.html" />
+  </url>
+  <url>
+    <loc>https://ihtml.es/en/interactive-button.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ihtml.es/en/interactive-button.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ihtml.es/boton-interactivo.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ihtml.es/boton-interactivo.html" />
+  </url>
+  <url>
+    <loc>https://ihtml.es/en/counter.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ihtml.es/en/counter.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ihtml.es/contador.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ihtml.es/contador.html" />
+  </url>
+  <url>
+    <loc>https://ihtml.es/en/pages-transitions.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ihtml.es/en/pages-transitions.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ihtml.es/paginas-transiciones.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ihtml.es/paginas-transiciones.html" />
+  </url>
+  <url>
+    <loc>https://ihtml.es/en/export-publish.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ihtml.es/en/export-publish.html" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://ihtml.es/exportar-publicar.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ihtml.es/exportar-publicar.html" />
+  </url>
+</urlset>

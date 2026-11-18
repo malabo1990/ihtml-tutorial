@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Un contador con variables — Tutoriales de IHTML</title>
+    <meta name="description" content="Crea una variable de proyecto, súmale 1 con cada clic y muéstrala en un texto." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ihtml.es/contador.html" />
+    <link rel="alternate" hreflang="es" href="https://ihtml.es/contador.html" />
+    <link rel="alternate" hreflang="en" href="https://ihtml.es/en/counter.html" />
+    <link rel="alternate" hreflang="x-default" href="https://ihtml.es/contador.html" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Tutoriales de IHTML" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:title" content="Un contador con variables — Tutoriales de IHTML" />
+    <meta property="og:description" content="Crea una variable de proyecto, súmale 1 con cada clic y muéstrala en un texto." />
+    <meta property="og:url" content="https://ihtml.es/contador.html" />
+    <meta property="og:image" content="https://ihtml.eu/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/estilos.css" />
+    <link rel="stylesheet" href="assets/tutorial.css" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Un contador con variables",
+  "description": "Crea una variable de proyecto, súmale 1 con cada clic y muéstrala en un texto.",
+  "inLanguage": "es",
+  "totalTime": "PT8M",
+  "url": "https://ihtml.es/contador.html",
+  "image": "https://ihtml.eu/assets/og-image.png"
+}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="island">
+      <button class="island-dot" aria-label="Menú" aria-expanded="false"></button>
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 555 625" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="logoGrad" x1="277" y1="0" x2="277" y2="625" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+            <linearGradient id="logoGradH" x1="0" y1="312" x2="555" y2="312" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#logoGrad)" d="M0 0H554.15V416.48L277.07 624.08 0 416.48Z" />
+          <path fill="url(#logoGradH)" d="M554.15 0 277.07 624.08 0 0Z" />
+        </svg>
+        <span class="logo-text"><b>IHTML</b>&nbsp;Interactive HTML</span>
+      </a>
+      <div class="island-menu-wrap">
+        <nav class="island-menu">
+          <a href="index.html" class="is-activo">Tutoriales</a>
+          <a href="https://ihtml.eu/es/guia-usuario.html">Guía completa</a>
+          <a href="https://ihtml.eu/es/">Web de IHTML</a>
+          <a class="is-cta" href="https://ihtml.eu/es/descargas.html">Descargar</a>
+        </nav>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-switch-btn" type="button" aria-label="Idioma: Español" aria-haspopup="true" aria-expanded="false">
+          ES<span class="lang-switch-caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="lang-switch-menu">
+          <a href="en/counter.html" lang="en">English</a>
+          <a href="#" class="is-activo" lang="es">Español</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <main id="contenido" class="guia tutorial">
+        <p class="tuto-meta">Intermedio · 8 min</p>
+        <h1>Un contador con variables</h1>
+        <p class="intro">Crea una variable de proyecto, súmale 1 con cada clic y muéstrala en un texto.</p>
+<p>Las <b>variables de proyecto</b> guardan números con nombre: puntos de un juego, pasos de un formulario, clics… En este tutorial haces un contador de puntos.</p>
+<h2 id="1-crea-la-variable">1. Crea la variable</h2>
+<ol class="pasos"><li>Selecciona cualquier elemento y abre la pestaña <b>Actions</b>.</li><li>Arriba de la lista de acciones está <b>Project Variables</b>. Pulsa <b>+ Add Variable</b>.</li><li>Nombre: <code>score</code>. Valor inicial: <code>0</code>.</li></ol>
+<h2 id="2-muestrala-en-un-texto">2. Muéstrala en un texto</h2>
+<ol class="pasos"><li>Crea un texto con la herramienta <b>Text</b> (<code>T</code>) y un clic en el lienzo.</li><li>En el campo <b>Content</b> escribe: <code>Puntos: {{score}}</code>.</li><li>El lienzo ya muestra «Puntos: 0». El valor se actualiza solo cuando la variable cambia.</li></ol>
+<p class="nota">Si escribes un nombre que no existe, se queda visible tal cual, para que notes el error.</p>
+<h2 id="3-sumale-1-con-cada-clic">3. Súmale 1 con cada clic</h2>
+<ol class="pasos"><li>Añade un <b>Button</b> (<code>B</code>) y escribe «+1» en su texto.</li><li>En <b>Actions</b>: disparador <b>Click</b>, acción <b>Set Variable</b>.</li><li>Variable <code>score</code>, operación <b>+ Add</b>, valor <code>1</code>.</li></ol>
+<p>Pruébalo con el modo <b>Interactivo</b>: cada clic suma un punto.</p>
+<h2 id="4-mas-operaciones">4. Más operaciones</h2>
+<p>Set Variable también puede <b>= Set to</b>, <b>− Subtract</b>, <b>× Multiply by</b>, <b>÷ Divide by</b>, <b>% Remainder of</b> y limitar con <b>Clamp</b> mínimo o máximo. Por ejemplo, un botón «Reiniciar» con <b>= Set to 0</b>.</p>
+<h2 id="que-has-aprendido">Qué has aprendido</h2>
+<ul><li>Crear variables de proyecto.</li><li>Mostrarlas con <code>{{nombre}}</code> en cualquier texto.</li><li>Cambiarlas con la acción Set Variable.</li></ul>
+        <nav class="tuto-nav">
+          <a href="index.html">← Todos los tutoriales</a>
+          <a href="paginas-transiciones.html">Siguiente: Páginas con transiciones →</a>
+        </nav>
+      </main>
+    </div>
+
+    <footer>
+      <p>Tutoriales de <b>IHTML</b> (Interactive HTML), el editor de animaciones HTML/CSS para escritorio y Android.</p>
+      <div class="docs">
+        <a href="index.html">Tutoriales</a>
+        <a href="https://ihtml.eu/es/guia-usuario.html">Guía completa</a>
+        <a href="https://ihtml.eu/es/">Web de IHTML</a>
+        <a href="https://ihtml.eu/es/descargas.html">Descargar</a>
+      </div>
+      <p class="footer-credit">© 2026 IHTML</p>
+      <p class="legal-links"><a href="https://ihtml.eu/es/licencia.html">Licencia</a> · <a href="https://ihtml.eu/es/privacidad.html">Privacidad</a></p>
+    </footer>
+
+    <script>
+      const isla = document.querySelector('.island');
+      const islaBot = document.querySelector('.island-dot');
+      if (isla && islaBot) {
+        islaBot.addEventListener('click', () => {
+          const abierto = isla.classList.toggle('is-abierto');
+          islaBot.setAttribute('aria-expanded', abierto);
+        });
+        document.addEventListener('click', (e) => {
+          if (isla.contains(e.target)) return;
+          isla.classList.remove('is-abierto');
+          islaBot.setAttribute('aria-expanded', 'false');
+        });
+      }
+      document.querySelectorAll('.lang-switch').forEach((ls) => {
+        const btn = ls.querySelector('.lang-switch-btn');
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const open = ls.classList.toggle('is-abierto');
+          btn.setAttribute('aria-expanded', open);
+        });
+      });
+      document.addEventListener('click', (e) => {
+        document.querySelectorAll('.lang-switch.is-abierto').forEach((ls) => {
+          if (ls.contains(e.target)) return;
+          ls.classList.remove('is-abierto');
+          ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
+        });
+      });
+    </script>
+  </body>
+</html>

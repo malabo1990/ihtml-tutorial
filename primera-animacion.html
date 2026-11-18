@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tu primera animación — Tutoriales de IHTML</title>
+    <meta name="description" content="Crea un elemento, anímalo con keyframes en la Timeline y míralo moverse en 10 minutos." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ihtml.es/primera-animacion.html" />
+    <link rel="alternate" hreflang="es" href="https://ihtml.es/primera-animacion.html" />
+    <link rel="alternate" hreflang="en" href="https://ihtml.es/en/first-animation.html" />
+    <link rel="alternate" hreflang="x-default" href="https://ihtml.es/primera-animacion.html" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Tutoriales de IHTML" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:title" content="Tu primera animación — Tutoriales de IHTML" />
+    <meta property="og:description" content="Crea un elemento, anímalo con keyframes en la Timeline y míralo moverse en 10 minutos." />
+    <meta property="og:url" content="https://ihtml.es/primera-animacion.html" />
+    <meta property="og:image" content="https://ihtml.eu/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/estilos.css" />
+    <link rel="stylesheet" href="assets/tutorial.css" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Tu primera animación",
+  "description": "Crea un elemento, anímalo con keyframes en la Timeline y míralo moverse en 10 minutos.",
+  "inLanguage": "es",
+  "totalTime": "PT10M",
+  "url": "https://ihtml.es/primera-animacion.html",
+  "image": "https://ihtml.eu/assets/og-image.png"
+}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <header class="island">
+      <button class="island-dot" aria-label="Menú" aria-expanded="false"></button>
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 555 625" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="logoGrad" x1="277" y1="0" x2="277" y2="625" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+            <linearGradient id="logoGradH" x1="0" y1="312" x2="555" y2="312" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#logoGrad)" d="M0 0H554.15V416.48L277.07 624.08 0 416.48Z" />
+          <path fill="url(#logoGradH)" d="M554.15 0 277.07 624.08 0 0Z" />
+        </svg>
+        <span class="logo-text"><b>IHTML</b>&nbsp;Interactive HTML</span>
+      </a>
+      <div class="island-menu-wrap">
+        <nav class="island-menu">
+          <a href="index.html" class="is-activo">Tutoriales</a>
+          <a href="https://ihtml.eu/es/guia-usuario.html">Guía completa</a>
+          <a href="https://ihtml.eu/es/">Web de IHTML</a>
+          <a class="is-cta" href="https://ihtml.eu/es/descargas.html">Descargar</a>
+        </nav>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-switch-btn" type="button" aria-label="Idioma: Español" aria-haspopup="true" aria-expanded="false">
+          ES<span class="lang-switch-caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="lang-switch-menu">
+          <a href="en/first-animation.html" lang="en">English</a>
+          <a href="#" class="is-activo" lang="es">Español</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <main id="contenido" class="guia tutorial">
+        <p class="tuto-meta">Principiante · 10 min</p>
+        <h1>Tu primera animación</h1>
+        <p class="intro">Crea un elemento, anímalo con keyframes en la Timeline y míralo moverse en 10 minutos.</p>
+<p>En este tutorial vas a crear un cuadrado que cruza el lienzo y se desvanece. Es el flujo básico de IHTML: <b>elemento → keyframes → reproducir</b>.</p>
+<h2 id="antes-de-empezar">Antes de empezar</h2>
+<ul><li>Descarga e instala IHTML desde <a href="https://ihtml.eu/es/descargas.html" target="_blank" rel="noopener">ihtml.eu</a>.</li><li>Ábrelo: en el centro está el <b>lienzo</b>, a la izquierda <b>Elementos</b> y <b>Capas</b>, a la derecha el <b>Inspector</b> y abajo la <b>Timeline</b>.</li></ul>
+<h2 id="1-crea-un-elemento">1. Crea un elemento</h2>
+<ol class="pasos"><li>Pulsa la herramienta <b>Shape</b> (tecla <code>S</code>) en la barra superior.</li><li>Arrastra sobre el lienzo para dibujar un rectángulo. Al soltar, la herramienta vuelve sola a <b>Select</b>.</li><li>El rectángulo queda seleccionado, con su caja de selección (bounding box) visible.</li></ol>
+<p class="nota">Atajo: con la herramienta Select activa, las teclas <code>B</code>, <code>D</code> e <code>Y</code> añaden al instante un Botón, un Div o un vídeo de YouTube del catálogo.</p>
+<h2 id="2-activa-los-keyframes-de-la-posicion">2. Activa los keyframes de la posición</h2>
+<ol class="pasos"><li>Con el rectángulo seleccionado, mira la pestaña <b>Design</b> del Inspector.</li><li>Junto a <b>X</b> pulsa el diamante (◆). Así IHTML empieza a seguir esa propiedad y crea el primer keyframe en el tiempo actual (0 s).</li><li>Haz lo mismo con <b>Opacidad</b>.</li></ol>
+<h2 id="3-graba-el-movimiento">3. Graba el movimiento</h2>
+<ol class="pasos"><li>Activa el modo <b>REC</b> (botón rojo ◆ de la Timeline o tecla <code>R</code>). Arriba a la derecha aparece «● REC».</li><li>Arrastra la línea roja (el playhead) desde la regla de tiempo hasta 2 s.</li><li>Mueve el rectángulo hacia la derecha y baja la <b>Opacidad</b> a 0. Cada cambio crea un keyframe en ese tiempo.</li><li>Vuelve a pulsar <code>R</code> para salir de REC.</li></ol>
+<h2 id="4-reproduce-y-ajusta">4. Reproduce y ajusta</h2>
+<ul><li>Pulsa <code>Espacio</code> para reproducir o pausar.</li><li>Haz doble clic sobre un keyframe para cambiar su curva de easing (linear, ease-in/out, bounce, elástica…).</li><li>Arrastra un keyframe para cambiar cuándo ocurre. Se engancha al playhead y a otros keyframes.</li><li>Con el elemento seleccionado, debajo de su fila verás cada propiedad animada con su valor en el playhead.</li></ul>
+<h2 id="5-mira-el-resultado">5. Mira el resultado</h2>
+<p>Pulsa <b>Preview</b> para abrir la animación en una pestaña nueva sin descargar nada. Cuando te guste, sigue con <a href="exportar-publicar.html">Exportar y publicar</a>.</p>
+<h2 id="que-has-aprendido">Qué has aprendido</h2>
+<ul><li>Crear formas con la herramienta Shape.</li><li>Activar keyframes con el diamante ◆ y grabar cambios con REC.</li><li>Reproducir, cambiar el easing y mover keyframes en la Timeline.</li></ul>
+        <nav class="tuto-nav">
+          <a href="index.html">← Todos los tutoriales</a>
+          <a href="boton-interactivo.html">Siguiente: Un botón que muestra un panel →</a>
+        </nav>
+      </main>
+    </div>
+
+    <footer>
+      <p>Tutoriales de <b>IHTML</b> (Interactive HTML), el editor de animaciones HTML/CSS para escritorio y Android.</p>
+      <div class="docs">
+        <a href="index.html">Tutoriales</a>
+        <a href="https://ihtml.eu/es/guia-usuario.html">Guía completa</a>
+        <a href="https://ihtml.eu/es/">Web de IHTML</a>
+        <a href="https://ihtml.eu/es/descargas.html">Descargar</a>
+      </div>
+      <p class="footer-credit">© 2026 IHTML</p>
+      <p class="legal-links"><a href="https://ihtml.eu/es/licencia.html">Licencia</a> · <a href="https://ihtml.eu/es/privacidad.html">Privacidad</a></p>
+    </footer>
+
+    <script>
+      const isla = document.querySelector('.island');
+      const islaBot = document.querySelector('.island-dot');
+      if (isla && islaBot) {
+        islaBot.addEventListener('click', () => {
+          const abierto = isla.classList.toggle('is-abierto');
+          islaBot.setAttribute('aria-expanded', abierto);
+        });
+        document.addEventListener('click', (e) => {
+          if (isla.contains(e.target)) return;
+          isla.classList.remove('is-abierto');
+          islaBot.setAttribute('aria-expanded', 'false');
+        });
+      }
+      document.querySelectorAll('.lang-switch').forEach((ls) => {
+        const btn = ls.querySelector('.lang-switch-btn');
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const open = ls.classList.toggle('is-abierto');
+          btn.setAttribute('aria-expanded', open);
+        });
+      });
+      document.addEventListener('click', (e) => {
+        document.querySelectorAll('.lang-switch.is-abierto').forEach((ls) => {
+          if (ls.contains(e.target)) return;
+          ls.classList.remove('is-abierto');
+          ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A button that shows a panel — IHTML Tutorials</title>
+    <meta name="description" content="Use Actions so a click shows or hides another element, without writing code." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ihtml.es/en/interactive-button.html" />
+    <link rel="alternate" hreflang="en" href="https://ihtml.es/en/interactive-button.html" />
+    <link rel="alternate" hreflang="es" href="https://ihtml.es/boton-interactivo.html" />
+    <link rel="alternate" hreflang="x-default" href="https://ihtml.es/boton-interactivo.html" />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="IHTML Tutorials" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="A button that shows a panel — IHTML Tutorials" />
+    <meta property="og:description" content="Use Actions so a click shows or hides another element, without writing code." />
+    <meta property="og:url" content="https://ihtml.es/en/interactive-button.html" />
+    <meta property="og:image" content="https://ihtml.eu/assets/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/estilos.css" />
+    <link rel="stylesheet" href="../assets/tutorial.css" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "A button that shows a panel",
+  "description": "Use Actions so a click shows or hides another element, without writing code.",
+  "inLanguage": "en",
+  "totalTime": "PT8M",
+  "url": "https://ihtml.es/en/interactive-button.html",
+  "image": "https://ihtml.eu/assets/og-image.png"
+}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Skip to content</a>
+    <header class="island">
+      <button class="island-dot" aria-label="Menu" aria-expanded="false"></button>
+      <a class="brand" href="index.html">
+        <svg viewBox="0 0 555 625" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="logoGrad" x1="277" y1="0" x2="277" y2="625" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+            <linearGradient id="logoGradH" x1="0" y1="312" x2="555" y2="312" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#f16529" />
+              <stop offset="1" stop-color="#a12100" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#logoGrad)" d="M0 0H554.15V416.48L277.07 624.08 0 416.48Z" />
+          <path fill="url(#logoGradH)" d="M554.15 0 277.07 624.08 0 0Z" />
+        </svg>
+        <span class="logo-text"><b>IHTML</b>&nbsp;Interactive HTML</span>
+      </a>
+      <div class="island-menu-wrap">
+        <nav class="island-menu">
+          <a href="index.html" class="is-activo">Tutorials</a>
+          <a href="https://ihtml.eu/guide.html">Full guide</a>
+          <a href="https://ihtml.eu/">IHTML website</a>
+          <a class="is-cta" href="https://ihtml.eu/downloads.html">Download</a>
+        </nav>
+      </div>
+      <div class="lang-switch">
+        <button class="lang-switch-btn" type="button" aria-label="Language: English" aria-haspopup="true" aria-expanded="false">
+          EN<span class="lang-switch-caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="lang-switch-menu">
+          <a href="../boton-interactivo.html" lang="es">Español</a>
+          <a href="#" class="is-activo" lang="en">English</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <main id="contenido" class="guia tutorial">
+        <p class="tuto-meta">Beginner · 8 min</p>
+        <h1>A button that shows a panel</h1>
+        <p class="intro">Use Actions so a click shows or hides another element, without writing code.</p>
+<p>You'll create a button that shows and hides an info panel when clicked. Everything happens in the Inspector's <b>Actions</b> tab: IHTML writes the code for you.</p>
+<h2 id="1-set-up-the-elements">1. Set up the elements</h2>
+<ol class="pasos"><li>Add a <b>Button</b> from the Elements panel (or press <code>B</code>).</li><li>Add a <b>Div</b> (or press <code>D</code>) and make it bigger: this is the panel.</li><li>Name them so they're easy to find: in <b>Layers</b>, double-click the name to rename. Call them &quot;Button&quot; and &quot;Panel&quot;.</li></ol>
+<h2 id="2-add-the-action">2. Add the action</h2>
+<ol class="pasos"><li>Select the <b>Button</b> and open the Inspector's <b>Actions</b> tab.</li><li>Choose the <b>Click</b> trigger.</li><li>Choose the <b>Toggle visibility</b> action.</li><li>In <b>Target</b>, choose &quot;Panel&quot;. Below the fixed options (the element itself, its parent, all), the list shows every element in Layers.</li></ol>
+<h2 id="3-try-it-without-exporting">3. Try it without exporting</h2>
+<p>Click the <b>Interactive</b> button (next to Preview): the editor enters interactive mode and actions run right on the canvas. Click the button to see the panel appear and disappear. Press <code>Esc</code> to go back to editing.</p>
+<p class="nota">Actions only change what you see in interactive mode. When you leave, the project returns to its original state.</p>
+<h2 id="4-variations">4. Variations</h2>
+<ul><li><b>Hover</b> and <b>Mouse leave</b>: show the panel when the pointer enters and hide it when it leaves, like a tooltip.</li><li><b>Key down</b>: record a combination such as <code>Ctrl+3</code> in the Key field.</li><li><b>In viewport</b>: fires every time the element scrolls into view.</li><li><b>Add/remove CSS class</b> or <b>Set style</b> to change how something looks instead of showing or hiding it.</li></ul>
+<h2 id="what-you-learned">What you learned</h2>
+<ul><li>Triggers (Click, Hover…) and actions (show, hide, toggle).</li><li>Picking an action's target by its layer name.</li><li>Testing interactions with Interactive mode.</li></ul>
+        <nav class="tuto-nav">
+          <a href="index.html">← All tutorials</a>
+          <a href="counter.html">Next: A counter with variables →</a>
+        </nav>
+      </main>
+    </div>
+
+    <footer>
+      <p>Tutorials for <b>IHTML</b> (Interactive HTML), the HTML/CSS animation editor for desktop and Android.</p>
+      <div class="docs">
+        <a href="index.html">Tutorials</a>
+        <a href="https://ihtml.eu/guide.html">Full guide</a>
+        <a href="https://ihtml.eu/">IHTML website</a>
+        <a href="https://ihtml.eu/downloads.html">Download</a>
+      </div>
+      <p class="footer-credit">© 2026 IHTML</p>
+      <p class="legal-links"><a href="https://ihtml.eu/license.html">License</a> · <a href="https://ihtml.eu/privacy.html">Privacy</a></p>
+    </footer>
+
+    <script>
+      const isla = document.querySelector('.island');
+      const islaBot = document.querySelector('.island-dot');
+      if (isla && islaBot) {
+        islaBot.addEventListener('click', () => {
+          const abierto = isla.classList.toggle('is-abierto');
+          islaBot.setAttribute('aria-expanded', abierto);
+        });
+        document.addEventListener('click', (e) => {
+          if (isla.contains(e.target)) return;
+          isla.classList.remove('is-abierto');
+          islaBot.setAttribute('aria-expanded', 'false');
+        });
+      }
+      document.querySelectorAll('.lang-switch').forEach((ls) => {
+        const btn = ls.querySelector('.lang-switch-btn');
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const open = ls.classList.toggle('is-abierto');
+          btn.setAttribute('aria-expanded', open);
+        });
+      });
+      document.addEventListener('click', (e) => {
+        document.querySelectorAll('.lang-switch.is-abierto').forEach((ls) => {
+          if (ls.contains(e.target)) return;
+          ls.classList.remove('is-abierto');
+          ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
+        });
+      });
+    </script>
+  </body>
+</html>
