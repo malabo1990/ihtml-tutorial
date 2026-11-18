@@ -82,6 +82,7 @@
         <p class="tuto-meta">Intermediate · 10 min</p>
         <h1>Pages with transitions</h1>
         <p class="intro">Create several pages and move between them with the Go to Page action and an animated transition.</p>
+
 <p>An IHTML project can have several <b>pages</b> (scenes). Only one is visible at a time, and a button can take you to another with a transition.</p>
 <h2 id="1-create-a-second-page">1. Create a second page</h2>
 <ol class="pasos"><li>In the left sidebar, open the <b>Pages</b> tab.</li><li>Click <b>+ New page</b> and choose <b>Blank page</b>.</li><li>Click each page in the list to activate it and edit its content. New elements go to the active page.</li></ol>
@@ -144,6 +145,50 @@
           ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
         });
       });
+
+      // Video de YouTube: el reproductor solo se carga al pulsar.
+      document.querySelectorAll('.video-lite').forEach((b) => {
+        b.addEventListener('click', () => {
+          const f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0';
+          f.title = b.getAttribute('aria-label');
+          f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+          f.allowFullscreen = true;
+          b.replaceWith(f);
+        });
+      });
+
+      // Portada: buscador + filtro por nivel.
+      const search = document.querySelector('.tuto-search');
+      if (search) {
+        let level = '';
+        const apply = () => {
+          const q = search.value.trim().toLowerCase();
+          let total = 0;
+          document.querySelectorAll('.tuto-cat').forEach((sec) => {
+            let n = 0;
+            sec.querySelectorAll('.tuto-card').forEach((c) => {
+              const ok = (!level || c.dataset.level === level) && (!q || c.dataset.text.includes(q));
+              c.hidden = !ok;
+              if (ok) n++;
+            });
+            sec.hidden = n === 0;
+            total += n;
+          });
+          document.querySelector('.tuto-empty').hidden = total > 0;
+        };
+        search.addEventListener('input', apply);
+        document.querySelectorAll('.tuto-chip').forEach((chip) => {
+          chip.addEventListener('click', () => {
+            level = chip.dataset.level;
+            document.querySelectorAll('.tuto-chip').forEach((c) => {
+              c.classList.toggle('is-activo', c === chip);
+              c.setAttribute('aria-pressed', c === chip);
+            });
+            apply();
+          });
+        });
+      }
     </script>
   </body>
 </html>

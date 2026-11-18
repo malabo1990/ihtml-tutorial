@@ -3,6 +3,7 @@ slug: contador
 pair: counter
 title: Un contador con variables
 description: Crea una variable de proyecto, súmale 1 con cada clic y muéstrala en un texto.
+category: Interactividad
 level: Intermedio
 minutes: 8
 order: 3

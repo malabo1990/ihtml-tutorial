@@ -82,6 +82,7 @@
         <p class="tuto-meta">Intermedio · 8 min</p>
         <h1>Un contador con variables</h1>
         <p class="intro">Crea una variable de proyecto, súmale 1 con cada clic y muéstrala en un texto.</p>
+
 <p>Las <b>variables de proyecto</b> guardan números con nombre: puntos de un juego, pasos de un formulario, clics… En este tutorial haces un contador de puntos.</p>
 <h2 id="1-crea-la-variable">1. Crea la variable</h2>
 <ol class="pasos"><li>Selecciona cualquier elemento y abre la pestaña <b>Actions</b>.</li><li>Arriba de la lista de acciones está <b>Project Variables</b>. Pulsa <b>+ Add Variable</b>.</li><li>Nombre: <code>score</code>. Valor inicial: <code>0</code>.</li></ol>
@@ -143,6 +144,50 @@
           ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
         });
       });
+
+      // Video de YouTube: el reproductor solo se carga al pulsar.
+      document.querySelectorAll('.video-lite').forEach((b) => {
+        b.addEventListener('click', () => {
+          const f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0';
+          f.title = b.getAttribute('aria-label');
+          f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+          f.allowFullscreen = true;
+          b.replaceWith(f);
+        });
+      });
+
+      // Portada: buscador + filtro por nivel.
+      const search = document.querySelector('.tuto-search');
+      if (search) {
+        let level = '';
+        const apply = () => {
+          const q = search.value.trim().toLowerCase();
+          let total = 0;
+          document.querySelectorAll('.tuto-cat').forEach((sec) => {
+            let n = 0;
+            sec.querySelectorAll('.tuto-card').forEach((c) => {
+              const ok = (!level || c.dataset.level === level) && (!q || c.dataset.text.includes(q));
+              c.hidden = !ok;
+              if (ok) n++;
+            });
+            sec.hidden = n === 0;
+            total += n;
+          });
+          document.querySelector('.tuto-empty').hidden = total > 0;
+        };
+        search.addEventListener('input', apply);
+        document.querySelectorAll('.tuto-chip').forEach((chip) => {
+          chip.addEventListener('click', () => {
+            level = chip.dataset.level;
+            document.querySelectorAll('.tuto-chip').forEach((c) => {
+              c.classList.toggle('is-activo', c === chip);
+              c.setAttribute('aria-pressed', c === chip);
+            });
+            apply();
+          });
+        });
+      }
     </script>
   </body>
 </html>

@@ -3,6 +3,7 @@ slug: interactive-button
 pair: boton-interactivo
 title: A button that shows a panel
 description: Use Actions so a click shows or hides another element, without writing code.
+category: Interactivity
 level: Beginner
 minutes: 8
 order: 2

@@ -3,6 +3,7 @@ slug: first-animation
 pair: primera-animacion
 title: Your first animation
 description: Create an element, animate it with keyframes on the Timeline and watch it move in 10 minutes.
+category: Getting started
 level: Beginner
 minutes: 10
 order: 1

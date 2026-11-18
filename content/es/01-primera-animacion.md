@@ -3,6 +3,7 @@ slug: primera-animacion
 pair: first-animation
 title: Tu primera animación
 description: Crea un elemento, anímalo con keyframes en la Timeline y míralo moverse en 10 minutos.
+category: Primeros pasos
 level: Principiante
 minutes: 10
 order: 1

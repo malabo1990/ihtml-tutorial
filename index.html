@@ -105,39 +105,56 @@
     <div class="wrap">
       <main id="contenido" class="tutoriales">
         <h1>Tutoriales de IHTML</h1>
-        <p class="intro">Aprende IHTML paso a paso: cada tutorial es corto, práctico y termina con algo que funciona.</p>
-        <div class="tuto-grid">
-        <a class="tuto-card" href="primera-animacion.html">
-          <span class="tuto-num">01</span>
-          <h2>Tu primera animación</h2>
-          <p>Crea un elemento, anímalo con keyframes en la Timeline y míralo moverse en 10 minutos.</p>
-          <span class="tuto-meta">Principiante · 10 min</span>
-        </a>
-        <a class="tuto-card" href="boton-interactivo.html">
-          <span class="tuto-num">02</span>
-          <h2>Un botón que muestra un panel</h2>
-          <p>Usa Acciones para que un clic muestre u oculte otro elemento, sin escribir código.</p>
-          <span class="tuto-meta">Principiante · 8 min</span>
-        </a>
-        <a class="tuto-card" href="contador.html">
-          <span class="tuto-num">03</span>
-          <h2>Un contador con variables</h2>
-          <p>Crea una variable de proyecto, súmale 1 con cada clic y muéstrala en un texto.</p>
-          <span class="tuto-meta">Intermedio · 8 min</span>
-        </a>
-        <a class="tuto-card" href="paginas-transiciones.html">
-          <span class="tuto-num">04</span>
-          <h2>Páginas con transiciones</h2>
-          <p>Crea varias páginas y navega entre ellas con la acción Go to Page y una transición animada.</p>
-          <span class="tuto-meta">Intermedio · 10 min</span>
-        </a>
-        <a class="tuto-card" href="exportar-publicar.html">
-          <span class="tuto-num">05</span>
-          <h2>Exportar y publicar</h2>
-          <p>Las formas de sacar tu proyecto de IHTML, de HTML para la web a .ihtml, imagen, GIF o vídeo.</p>
-          <span class="tuto-meta">Principiante · 6 min</span>
-        </a>
+        <p class="intro">Aprende IHTML paso a paso: cada tutorial es corto, práctico y termina con algo que funciona. <span class="tuto-free">Gratis · sin registro</span></p>
+        <div class="tuto-tools">
+          <input type="search" class="tuto-search" placeholder="Buscar tutoriales…" aria-label="Buscar tutoriales…" />
+          <div class="tuto-chips" role="group">
+          <button type="button" class="tuto-chip is-activo" data-level="">Todos</button>
+          <button type="button" class="tuto-chip" data-level="beginner">Principiante</button>
+          <button type="button" class="tuto-chip" data-level="intermediate">Intermedio</button>
+          </div>
         </div>
+        <section class="tuto-cat">
+          <h2>Primeros pasos</h2>
+          <div class="tuto-grid">
+          <a class="tuto-card" href="primera-animacion.html" data-level="beginner" data-text="tu primera animación crea un elemento, anímalo con keyframes en la timeline y míralo moverse en 10 minutos. primeros pasos">
+            <span class="tuto-num">01</span>
+            <h3>Tu primera animación</h3>
+            <p>Crea un elemento, anímalo con keyframes en la Timeline y míralo moverse en 10 minutos.</p>
+            <span class="tuto-meta">Principiante · 10 min</span>
+          </a>
+          <a class="tuto-card" href="exportar-publicar.html" data-level="beginner" data-text="exportar y publicar las formas de sacar tu proyecto de ihtml, de html para la web a .ihtml, imagen, gif o vídeo. primeros pasos">
+            <span class="tuto-num">05</span>
+            <h3>Exportar y publicar</h3>
+            <p>Las formas de sacar tu proyecto de IHTML, de HTML para la web a .ihtml, imagen, GIF o vídeo.</p>
+            <span class="tuto-meta">Principiante · 6 min</span>
+          </a>
+          </div>
+        </section>
+        <section class="tuto-cat">
+          <h2>Interactividad</h2>
+          <div class="tuto-grid">
+          <a class="tuto-card" href="boton-interactivo.html" data-level="beginner" data-text="un botón que muestra un panel usa acciones para que un clic muestre u oculte otro elemento, sin escribir código. interactividad">
+            <span class="tuto-num">02</span>
+            <h3>Un botón que muestra un panel</h3>
+            <p>Usa Acciones para que un clic muestre u oculte otro elemento, sin escribir código.</p>
+            <span class="tuto-meta">Principiante · 8 min</span>
+          </a>
+          <a class="tuto-card" href="contador.html" data-level="intermediate" data-text="un contador con variables crea una variable de proyecto, súmale 1 con cada clic y muéstrala en un texto. interactividad">
+            <span class="tuto-num">03</span>
+            <h3>Un contador con variables</h3>
+            <p>Crea una variable de proyecto, súmale 1 con cada clic y muéstrala en un texto.</p>
+            <span class="tuto-meta">Intermedio · 8 min</span>
+          </a>
+          <a class="tuto-card" href="paginas-transiciones.html" data-level="intermediate" data-text="páginas con transiciones crea varias páginas y navega entre ellas con la acción go to page y una transición animada. interactividad">
+            <span class="tuto-num">04</span>
+            <h3>Páginas con transiciones</h3>
+            <p>Crea varias páginas y navega entre ellas con la acción Go to Page y una transición animada.</p>
+            <span class="tuto-meta">Intermedio · 10 min</span>
+          </a>
+          </div>
+        </section>
+        <p class="tuto-empty" hidden>No hay tutoriales que coincidan con la búsqueda.</p>
       </main>
     </div>
 
@@ -182,6 +199,50 @@
           ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
         });
       });
+
+      // Video de YouTube: el reproductor solo se carga al pulsar.
+      document.querySelectorAll('.video-lite').forEach((b) => {
+        b.addEventListener('click', () => {
+          const f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0';
+          f.title = b.getAttribute('aria-label');
+          f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+          f.allowFullscreen = true;
+          b.replaceWith(f);
+        });
+      });
+
+      // Portada: buscador + filtro por nivel.
+      const search = document.querySelector('.tuto-search');
+      if (search) {
+        let level = '';
+        const apply = () => {
+          const q = search.value.trim().toLowerCase();
+          let total = 0;
+          document.querySelectorAll('.tuto-cat').forEach((sec) => {
+            let n = 0;
+            sec.querySelectorAll('.tuto-card').forEach((c) => {
+              const ok = (!level || c.dataset.level === level) && (!q || c.dataset.text.includes(q));
+              c.hidden = !ok;
+              if (ok) n++;
+            });
+            sec.hidden = n === 0;
+            total += n;
+          });
+          document.querySelector('.tuto-empty').hidden = total > 0;
+        };
+        search.addEventListener('input', apply);
+        document.querySelectorAll('.tuto-chip').forEach((chip) => {
+          chip.addEventListener('click', () => {
+            level = chip.dataset.level;
+            document.querySelectorAll('.tuto-chip').forEach((c) => {
+              c.classList.toggle('is-activo', c === chip);
+              c.setAttribute('aria-pressed', c === chip);
+            });
+            apply();
+          });
+        });
+      }
     </script>
   </body>
 </html>

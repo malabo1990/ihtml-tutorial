@@ -2,7 +2,7 @@
 //   node scripts/build.mjs
 // Español en la raíz, inglés en /en/. Cada .md lleva un frontmatter con
 // slug, pair (slug del otro idioma), title, description, level, minutes, order.
-import { readFileSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
@@ -32,7 +32,15 @@ const T = {
     langLabel: 'Idioma: Español',
     langCode: 'ES',
     footer: 'Tutoriales de <b>IHTML</b> (Interactive HTML), el editor de animaciones HTML/CSS para escritorio y Android.',
-    legal: ['Licencia', 'Privacidad']
+    legal: ['Licencia', 'Privacidad'],
+    search: 'Buscar tutoriales…',
+    allLevels: 'Todos',
+    levels: { beginner: 'Principiante', intermediate: 'Intermedio', advanced: 'Avanzado' },
+    video: 'Vídeo',
+    play: 'Ver el vídeo',
+    ytNote: 'Al pulsar se carga el reproductor de YouTube',
+    noResults: 'No hay tutoriales que coincidan con la búsqueda.',
+    free: 'Gratis · sin registro'
   },
   en: {
     dir: 'en/',
@@ -54,7 +62,15 @@ const T = {
     langLabel: 'Language: English',
     langCode: 'EN',
     footer: 'Tutorials for <b>IHTML</b> (Interactive HTML), the HTML/CSS animation editor for desktop and Android.',
-    legal: ['License', 'Privacy']
+    legal: ['License', 'Privacy'],
+    search: 'Search tutorials…',
+    allLevels: 'All',
+    levels: { beginner: 'Beginner', intermediate: 'Intermediate', advanced: 'Advanced' },
+    video: 'Video',
+    play: 'Watch the video',
+    ytNote: 'Clicking loads the YouTube player',
+    noResults: 'No tutorials match your search.',
+    free: 'Free · no sign-up'
   }
 };
 
@@ -144,11 +160,62 @@ function parse(file) {
     const i = l.indexOf(':');
     if (i > 0) meta[l.slice(0, i).trim()] = l.slice(i + 1).trim();
   }
-  for (const k of ['slug', 'pair', 'title', 'description', 'level', 'minutes', 'order']) {
+  for (const k of ['slug', 'pair', 'title', 'description', 'level', 'minutes', 'order', 'category']) {
     if (!meta[k]) throw new Error(`Falta "${k}" en ${file}`);
   }
   meta.order = Number(meta.order);
+  meta.levelKey = LEVELS[meta.level.toLowerCase()];
+  if (!meta.levelKey) throw new Error(`Nivel desconocido "${meta.level}" en ${file} (usa: ${Object.keys(LEVELS).join(', ')})`);
+  if (meta.video) {
+    meta.videoInfo = parseVideo(meta.video);
+    if (!meta.videoInfo) throw new Error(`video no reconocido en ${file}: ${meta.video}`);
+  }
   return { ...meta, body: md(m[2]) };
+}
+
+// Nivel escrito en cualquiera de los dos idiomas -> clave comun para el filtro.
+const LEVELS = {
+  principiante: 'beginner',
+  beginner: 'beginner',
+  intermedio: 'intermediate',
+  intermediate: 'intermediate',
+  avanzado: 'advanced',
+  advanced: 'advanced'
+};
+
+// `video:` acepta una URL de YouTube (watch, youtu.be, shorts, embed) o un
+// archivo propio dentro de videos/ (mp4/webm), p. ej. `videos/primera-animacion.mp4`.
+function parseVideo(v) {
+  const yt =
+    /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/|live\/)|youtu\.be\/)([\w-]{11})/.exec(v) ||
+    /^([\w-]{11})$/.exec(v);
+  if (yt) return { kind: 'youtube', id: yt[1] };
+  if (/^videos\/[\w./-]+\.(mp4|webm)$/i.test(v)) {
+    if (!existsSync(ROOT + v)) throw new Error(`No existe el archivo de video ${v}`);
+    return { kind: 'file', src: v, type: v.toLowerCase().endsWith('.webm') ? 'video/webm' : 'video/mp4' };
+  }
+  return null;
+}
+
+// El reproductor de YouTube NO se carga hasta que el alumno pulsa (sin cookies
+// ni peticiones a Google antes del clic); luego usa youtube-nocookie.com.
+function videoBlock(tu, t, up) {
+  const v = tu.videoInfo;
+  if (!v) return '';
+  if (v.kind === 'file') {
+    return `        <figure class="tuto-video">
+          <video controls preload="metadata" playsinline>
+            <source src="${up}${v.src}" type="${v.type}" />
+          </video>
+        </figure>`;
+  }
+  return `        <figure class="tuto-video">
+          <button class="video-lite" type="button" data-yt="${v.id}" aria-label="${esc(t.play)}: ${esc(tu.title)}">
+            <span class="video-lite-play" aria-hidden="true"></span>
+            <span class="video-lite-title">${esc(tu.title)}</span>
+            <span class="video-lite-note">${esc(t.ytNote)}</span>
+          </button>
+        </figure>`;
 }
 
 function load(lang) {
@@ -264,6 +331,50 @@ ${body}
           ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
         });
       });
+
+      // Video de YouTube: el reproductor solo se carga al pulsar.
+      document.querySelectorAll('.video-lite').forEach((b) => {
+        b.addEventListener('click', () => {
+          const f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0';
+          f.title = b.getAttribute('aria-label');
+          f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+          f.allowFullscreen = true;
+          b.replaceWith(f);
+        });
+      });
+
+      // Portada: buscador + filtro por nivel.
+      const search = document.querySelector('.tuto-search');
+      if (search) {
+        let level = '';
+        const apply = () => {
+          const q = search.value.trim().toLowerCase();
+          let total = 0;
+          document.querySelectorAll('.tuto-cat').forEach((sec) => {
+            let n = 0;
+            sec.querySelectorAll('.tuto-card').forEach((c) => {
+              const ok = (!level || c.dataset.level === level) && (!q || c.dataset.text.includes(q));
+              c.hidden = !ok;
+              if (ok) n++;
+            });
+            sec.hidden = n === 0;
+            total += n;
+          });
+          document.querySelector('.tuto-empty').hidden = total > 0;
+        };
+        search.addEventListener('input', apply);
+        document.querySelectorAll('.tuto-chip').forEach((chip) => {
+          chip.addEventListener('click', () => {
+            level = chip.dataset.level;
+            document.querySelectorAll('.tuto-chip').forEach((c) => {
+              c.classList.toggle('is-activo', c === chip);
+              c.setAttribute('aria-pressed', c === chip);
+            });
+            apply();
+          });
+        });
+      }
     </script>
   </body>
 </html>
@@ -290,15 +401,30 @@ for (const lang of ['es', 'en']) {
   const relOther = (slug) => (lang === 'es' ? 'en/' : '../') + (slug ? slug + '.html' : 'index.html');
   const list = all[lang];
 
-  // Portada con las tarjetas
-  const cards = list
+  // Portada: buscador + filtro por nivel + tarjetas agrupadas por tema
+  // (en el orden en que aparece cada tema por primera vez).
+  const card = (tu) => {
+    const text = `${tu.title} ${tu.description} ${tu.category}`.toLowerCase();
+    return `          <a class="tuto-card" href="${tu.slug}.html" data-level="${tu.levelKey}" data-text="${esc(text)}">
+            <span class="tuto-num">${String(tu.order).padStart(2, '0')}${tu.videoInfo ? ` <span class="tuto-badge">▶ ${t.video}</span>` : ''}</span>
+            <h3>${esc(tu.title)}</h3>
+            <p>${esc(tu.description)}</p>
+            <span class="tuto-meta">${esc(tu.level)} · ${esc(tu.minutes)} ${t.min}</span>
+          </a>`;
+  };
+  const categories = [...new Set(list.map((tu) => tu.category))];
+  const usedLevels = Object.keys(t.levels).filter((k) => list.some((tu) => tu.levelKey === k));
+  const filters = [`<button type="button" class="tuto-chip is-activo" data-level="">${t.allLevels}</button>`]
+    .concat(usedLevels.map((k) => `<button type="button" class="tuto-chip" data-level="${k}">${t.levels[k]}</button>`))
+    .join('\n          ');
+  const cards = categories
     .map(
-      (tu, i) => `        <a class="tuto-card" href="${tu.slug}.html">
-          <span class="tuto-num">${String(i + 1).padStart(2, '0')}</span>
-          <h2>${esc(tu.title)}</h2>
-          <p>${esc(tu.description)}</p>
-          <span class="tuto-meta">${esc(tu.level)} · ${esc(tu.minutes)} ${t.min}</span>
-        </a>`
+      (cat) => `        <section class="tuto-cat">
+          <h2>${esc(cat)}</h2>
+          <div class="tuto-grid">
+${list.filter((tu) => tu.category === cat).map(card).join('\n')}
+          </div>
+        </section>`
     )
     .join('\n');
   const homeAlt = [
@@ -327,10 +453,15 @@ for (const lang of ['es', 'en']) {
       },
       body: `      <main id="contenido" class="tutoriales">
         <h1>${t.homeH1}</h1>
-        <p class="intro">${t.homeIntro}</p>
-        <div class="tuto-grid">
-${cards}
+        <p class="intro">${t.homeIntro} <span class="tuto-free">${t.free}</span></p>
+        <div class="tuto-tools">
+          <input type="search" class="tuto-search" placeholder="${esc(t.search)}" aria-label="${esc(t.search)}" />
+          <div class="tuto-chips" role="group">
+          ${filters}
+          </div>
         </div>
+${cards}
+        <p class="tuto-empty" hidden>${t.noResults}</p>
       </main>`
     })
   );
@@ -371,6 +502,7 @@ ${cards}
         <p class="tuto-meta">${esc(tu.level)} · ${esc(tu.minutes)} ${t.min}</p>
         <h1>${esc(tu.title)}</h1>
         <p class="intro">${esc(tu.description)}</p>
+${videoBlock(tu, t, lang === 'es' ? '' : '../')}
 ${tu.body}
 ${nav}
       </main>`

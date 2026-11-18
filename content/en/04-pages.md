@@ -3,6 +3,7 @@ slug: pages-transitions
 pair: paginas-transiciones
 title: Pages with transitions
 description: Create several pages and move between them with the Go to Page action and an animated transition.
+category: Interactivity
 level: Intermediate
 minutes: 10
 order: 4

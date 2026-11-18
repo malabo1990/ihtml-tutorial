@@ -3,6 +3,7 @@ slug: export-publish
 pair: exportar-publicar
 title: Export and publish
 description: Every way to get your project out of IHTML, from HTML for the web to .ihtml, image, GIF or video.
+category: Getting started
 level: Beginner
 minutes: 6
 order: 5

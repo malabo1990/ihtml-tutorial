@@ -3,6 +3,7 @@ slug: paginas-transiciones
 pair: pages-transitions
 title: Páginas con transiciones
 description: Crea varias páginas y navega entre ellas con la acción Go to Page y una transición animada.
+category: Interactividad
 level: Intermedio
 minutes: 10
 order: 4

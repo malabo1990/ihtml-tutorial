@@ -3,6 +3,7 @@ slug: counter
 pair: contador
 title: A counter with variables
 description: Create a project variable, add 1 on every click and show it in a text.
+category: Interactivity
 level: Intermediate
 minutes: 8
 order: 3

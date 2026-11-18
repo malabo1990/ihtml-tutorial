@@ -3,6 +3,7 @@ slug: exportar-publicar
 pair: export-publish
 title: Exportar y publicar
 description: Las formas de sacar tu proyecto de IHTML, de HTML para la web a .ihtml, imagen, GIF o vídeo.
+category: Primeros pasos
 level: Principiante
 minutes: 6
 order: 5

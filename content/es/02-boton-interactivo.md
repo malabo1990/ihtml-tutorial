@@ -3,6 +3,7 @@ slug: boton-interactivo
 pair: interactive-button
 title: Un botón que muestra un panel
 description: Usa Acciones para que un clic muestre u oculte otro elemento, sin escribir código.
+category: Interactividad
 level: Principiante
 minutes: 8
 order: 2

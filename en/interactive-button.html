@@ -82,6 +82,7 @@
         <p class="tuto-meta">Beginner · 8 min</p>
         <h1>A button that shows a panel</h1>
         <p class="intro">Use Actions so a click shows or hides another element, without writing code.</p>
+
 <p>You'll create a button that shows and hides an info panel when clicked. Everything happens in the Inspector's <b>Actions</b> tab: IHTML writes the code for you.</p>
 <h2 id="1-set-up-the-elements">1. Set up the elements</h2>
 <ol class="pasos"><li>Add a <b>Button</b> from the Elements panel (or press <code>B</code>).</li><li>Add a <b>Div</b> (or press <code>D</code>) and make it bigger: this is the panel.</li><li>Name them so they're easy to find: in <b>Layers</b>, double-click the name to rename. Call them &quot;Button&quot; and &quot;Panel&quot;.</li></ol>
@@ -142,6 +143,50 @@
           ls.querySelector('.lang-switch-btn').setAttribute('aria-expanded', 'false');
         });
       });
+
+      // Video de YouTube: el reproductor solo se carga al pulsar.
+      document.querySelectorAll('.video-lite').forEach((b) => {
+        b.addEventListener('click', () => {
+          const f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0';
+          f.title = b.getAttribute('aria-label');
+          f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+          f.allowFullscreen = true;
+          b.replaceWith(f);
+        });
+      });
+
+      // Portada: buscador + filtro por nivel.
+      const search = document.querySelector('.tuto-search');
+      if (search) {
+        let level = '';
+        const apply = () => {
+          const q = search.value.trim().toLowerCase();
+          let total = 0;
+          document.querySelectorAll('.tuto-cat').forEach((sec) => {
+            let n = 0;
+            sec.querySelectorAll('.tuto-card').forEach((c) => {
+              const ok = (!level || c.dataset.level === level) && (!q || c.dataset.text.includes(q));
+              c.hidden = !ok;
+              if (ok) n++;
+            });
+            sec.hidden = n === 0;
+            total += n;
+          });
+          document.querySelector('.tuto-empty').hidden = total > 0;
+        };
+        search.addEventListener('input', apply);
+        document.querySelectorAll('.tuto-chip').forEach((chip) => {
+          chip.addEventListener('click', () => {
+            level = chip.dataset.level;
+            document.querySelectorAll('.tuto-chip').forEach((c) => {
+              c.classList.toggle('is-activo', c === chip);
+              c.setAttribute('aria-pressed', c === chip);
+            });
+            apply();
+          });
+        });
+      }
     </script>
   </body>
 </html>
